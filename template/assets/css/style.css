@@ -1,0 +1,12 @@
+.card {
+    margin : 50px;
+}
+
+.card-header{
+    font-weight: bold;
+    color: maroon;
+}
+
+img{
+    margin-top: 50px;
+}
