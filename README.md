@@ -16,3 +16,5 @@ Repository materi belajar laravel - EDE Laboratory
 
 ## Assets
 1. folder `template` berisi template layout sederhana untuk belajar templating
+2. folder `belajar-crud` berisi source code materi
+3. Powerpoint untuk timeline materi
