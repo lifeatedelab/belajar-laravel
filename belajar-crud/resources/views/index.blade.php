@@ -3,10 +3,14 @@
 @section('title', 'Index')
 
 @section('content')
+
+<!-- contoh komentar blade -->
+ {{-- dd($employees) --}}
+
 <div class="card">
     <h5 class="card-header">
         Employee Table
-        <a href="{{ url('/home/create') }}" class="btn btn-dark float-right">Insert Employee</a>
+        <a href="{{ route('create') }}" class="btn btn-dark float-right">Insert Employee</a>
     </h5>
     <div class="card-body">
         <table class="table table-sm datatable">
@@ -21,61 +25,23 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach($employees as $employee)
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Nama Pegawai</td>
-                    <td>Jabatan</td>
-                    <td>No Telephone</td>
-                    <td>Alamat</td>
+                    <th scope="row">{{ $loop->iteration }}</th>
+                    <td>{{ $employee->name }}</td>
+                    <td>{{ $employee->jabatan }}</td>
+                    <td>{{ $employee->telephone }}</td>
+                    <td>{{ $employee->address }}</td>
                     <td>
                         <button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <form action="{{ route('delete', $employee->id) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                        <!-- <a href="{{ route('delete', $employee->id) }}" class="btn btn-danger">Delete</a> -->
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Nama Pegawai</td>
-                    <td>Jabatan</td>
-                    <td>No Telephone</td>
-                    <td>Alamat</td>
-                    <td>
-                        <button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Nama Pegawai</td>
-                    <td>Jabatan</td>
-                    <td>No Telephone</td>
-                    <td>Alamat</td>
-                    <td>
-                        <button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Nama Pegawai</td>
-                    <td>Jabatan</td>
-                    <td>No Telephone</td>
-                    <td>Alamat</td>
-                    <td>
-                        <button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Nama Pegawai</td>
-                    <td>Jabatan</td>
-                    <td>No Telephone</td>
-                    <td>Alamat</td>
-                    <td>
-                        <button class="btn btn-primary">Edit</button>
-                        <button class="btn btn-danger">Delete</button>
-                    </td>
-                </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

@@ -35,16 +35,18 @@ Route::post('/contohpost', function(){
     return "post";
 });
 
-Route::get('/home/index', function(){
-    return view('index');
-})->name('index');
+// Route::get('/home/index', function(){
+//     return view('index');
+// })->name('index');
 
-Route::get('/home/create', function(){
-    return view('create');
-});
+// Route::get('/home/create', function(){
+//     return view('create');
+// });
 
-Route::get('/index', 'EmployeeController@index');
-Route::get('/create', 'EmployeeController@create');
+Route::get('/index', 'EmployeeController@index')->name('index');
+Route::get('/create', 'EmployeeController@create')->name('create');
+Route::post('/store', 'EmployeeController@store')->name('store');
+Route::post('/delete/{id}', 'EmployeeController@delete')->name('delete');
 
 // Route::patch('/contohpost', function(){
 //     return "post";
